@@ -1,0 +1,62 @@
+scripts
+
+start : nos permite ejecutar nuestro proyecto
+build : permite generar una vercion de nuestro proyecto para desplegar a producción  
+eslintConfig : permite resivir recomedaciones en consola ejemplo algun metodo no se esta utilizando o importación 
+
+robots : se utiliza para realizar web scrapting 
+
+manifest : se utiliza para trabajar con progrest y web apps 
+
+
+¿que es un componente?
+
+Los Componentes son como fichas de lego con sus funcionalidades y caracteristicas.
+
+    Tipos de Componentes: Contenedores y Componentes Presentacionales.
+
+        Los componentes contenedores: (Smart components)
+        controlan interacciones con los usuarios, navegador, peticiones a APIs etc.
+
+         Componentes Presentacionales: (Dumb Components)
+         se encargan de la estructura y estilos de nuestras aplicacion 
+
+
+         // Contenedor.js
+
+            import React,  { useState, useEffect } from ‘react’;
+
+            functionContenedor(props) {
+                
+                const [plant, setPlant] = useState(“”);
+
+                useEffect(() => {
+                    const fetchPlant = async () => {
+                        const res = await fetch(props.api);
+                        const plant = await res.json();
+                        setPlant(plant.name);
+                    };
+
+                    fetchPlant();
+
+                }, [props.api]);
+
+                const Children = props.children;
+
+                return<Childrenplan={plant} />;
+            }
+
+        export default Contenedor;
+
+
+        // Presentacional.js
+
+        import React from ‘react’;
+
+            const Presentacional = (props) => (
+                <divclassName=”plantContainer”>
+                <h2className=”plantTitle”>{props.plant}h2>
+                div>
+            );
+
+        exportdefault Presentacional;
