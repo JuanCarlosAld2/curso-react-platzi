@@ -1,7 +1,9 @@
 scripts
 
 start : nos permite ejecutar nuestro proyecto
+
 build : permite generar una vercion de nuestro proyecto para desplegar a producción  
+
 eslintConfig : permite resivir recomedaciones en consola ejemplo algun metodo no se esta utilizando o importación 
 
 robots : se utiliza para realizar web scrapting 
@@ -15,7 +17,8 @@ Los Componentes son como fichas de lego con sus funcionalidades y caracteristica
 
     Tipos de Componentes: Contenedores y Componentes Presentacionales.
 
-        Los componentes contenedores: (Smart components)
+        * Los componentes contenedores: (Smart components)
+
         controlan interacciones con los usuarios, navegador, peticiones a APIs etc.
 
          Componentes Presentacionales: (Dumb Components)
@@ -49,7 +52,7 @@ Los Componentes son como fichas de lego con sus funcionalidades y caracteristica
         export default Contenedor;
 
 
-        // Presentacional.js
+        ** Presentacional.js
 
         import React from ‘react’;
 
@@ -60,3 +63,9 @@ Los Componentes son como fichas de lego con sus funcionalidades y caracteristica
             );
 
         exportdefault Presentacional;
+
+    ¿Que es un elemento? 
+        es la unidad más básica con la que se construye la interfaz de usuario. Es un objeto plano que representa lo que desea ver en la pantalla.
+
+
+
