@@ -1,10 +1,10 @@
 import './TodoList.css';
 
-function TodoList (props) {
+function TodoList ({children}) { //children se encuentra dentro de props.children 
     return (
       <ul className= 'TodoList'>
         {
-        props.children
+          children
         }
       </ul>
     )

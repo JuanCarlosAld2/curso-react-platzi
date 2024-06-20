@@ -5,10 +5,10 @@ import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
 
 const defaultTodos =[
-  { text: 'Cortar cebolla', compled: true},
-  { text: 'Tomar el curso de Intro a React.js', compled: false},
-  { text: 'Llora con la llorana', compled: false},
-  { text: 'LALALALALALA', compled: false},
+  { text: 'Cortar cebolla', completed: true},
+  { text: 'Tomar el curso de Intro a React.js', completed: false},
+  { text: 'Llora con la llorana', completed: false},
+  { text: 'LALALALALALA', completed: false},
 ];
 
 function App() { //esto es jsx no html
@@ -24,7 +24,7 @@ function App() { //esto es jsx no html
             < TodoItem 
               key = {index}
               text = {todo.text}
-              compled = {todo.compled}
+              completed = {todo.completed}
             
             />
           ))
