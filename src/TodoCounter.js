@@ -4,19 +4,29 @@ import './TodoCounter.css';
 
 function TodoCounter ({ total, completed }) {
 
-
+  // console.log(completed);
     return (
-      <h1 >
-        Has completado {completed} de {total} todos
-      </h1>
+      <>
+        {
+          total === completed ? (
+            <h1 className='TodoCounter'>You have completed all your tasks</h1>
+          ) : (
+                <h1 className='TodoCounter'>        
+                  Completed <span >{completed}</span> of <span>{total}</span> Todos
+                </h1>
+              ) 
+        }
+      </>
     )
-  }
+}
 
 export { 
     TodoCounter 
 }
 
-
+/*
+  los parentecis en la condicion sirven para agrupar no son necesarios pero son buena practica 
+*/
 
 
 //COMPONENTE CON ESTILOS EN LINEA  

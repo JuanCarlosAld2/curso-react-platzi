@@ -1,15 +1,16 @@
 import './TodoItem.css';
 
-function TodoItem (props) {
+function TodoItem ({completed, text,  onComplete, onDelete}) {
+
     return (
       <li className= 'TodoItem'>
-        <span className={`Icon Icon-check ${props.completed && "Icon-check--active"}`}>
+        <span className={`Icon Icon-check ${completed && "Icon-check--active"}`} onClick={()=>onComplete(text)}>
           V
         </span>
-        <p className={`TodoItem-p ${props.completed && "TodoItem-p--complete"}`}>
-          {props.text}
+        <p className={`TodoItem-p ${completed && "TodoItem-p--complete"}`}>
+          {text}
         </p>
-        <span className ="Icon Icon-delete">
+        <span className ="Icon Icon-delete" onClick={()=>onDelete(text)}>
           X
         </span>
       </li>
@@ -19,3 +20,4 @@ function TodoItem (props) {
 export {
     TodoItem
 }
+

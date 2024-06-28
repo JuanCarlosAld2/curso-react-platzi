@@ -15,7 +15,8 @@ export {
 }
 
 /*
-
+react children:
+  react transforma automaticamente todo lo que este dentro de nuestro componente en la propiedad children  
 props.children = comunicacion entre componentes por medio de props 
 
 

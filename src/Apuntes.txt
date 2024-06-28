@@ -69,3 +69,10 @@ Los Componentes son como fichas de lego con sus funcionalidades y caracteristica
 
 
 
+Comunicacion de componentes por medio de props 
+
+la comunicacion entre componentes se realiza principalmete mediante porps (propiedades). Las props permiten que un padre pase datos y funciones a sus componentes hijos. 
+
+comunicacion de padre a hijo: El componente padre pasa datos al hijo mediante props.
+
+comunicacion de hijo a padre: El componente hijo llama a funciones pasadas como props para comunicar eventos o datos de vuelta al padre.
