@@ -76,3 +76,112 @@ la comunicacion entre componentes se realiza principalmete mediante porps (propi
 comunicacion de padre a hijo: El componente padre pasa datos al hijo mediante props.
 
 comunicacion de hijo a padre: El componente hijo llama a funciones pasadas como props para comunicar eventos o datos de vuelta al padre.
+
+
+
+
+
+
+Local Storage 
+
+- Caracteristica del navegador web que permite almacenar datos de manera persistente en el navegador del usuario.
+- Almacena informacion que no se envia al servidor con cada solicitud HTTP.
+
+    caracteristicas Principales 
+
+        1.- Persistencia: Los datos almacenados pemanecen incluso despues de cerrar el navegador. Solo se borran si se elimina explicitamente o si se borra la cache del navegador.
+
+        2.- Capacidad: Puede almacenar hasta unos 5 mb de datos por origen (dominio)
+
+        3.- Almacenamiento en Clave-Valor: las claves como los valores son strings
+
+    Funcionalidades Basicas 
+
+        Guardar Datos:
+            metodo => localStorage.setItem('nombre','Juan');
+                nombre = clave 
+                juan = valor que se desea guardar 
+
+        Recuperar Datos
+            metodo 
+                const nombre = localStorage.getItem('nombre');
+                console.log(nombre) // imprime 'Juan'
+
+        Elimianr Datos:
+            metodo => localStorage.removeItem('nombre');
+
+Usos comunes de localStorage
+
+    * mantener sesiones de Usuario: Almacenar informacion basica sobre el usuario, como nombre o preferencias
+
+    * Guardar preferencias: Guardar configuraciones de la aplicacion que usuario haya personalizado 
+
+    * Almacenamiento de Datos Temporales: gurdar datos que deben persistir entre recargas de pagina pero que no son criticos 
+
+Conclusión
+El Local Storage es una herramienta útil para almacenar datos en el navegador de manera persistente y sencilla, permitiendo que las aplicaciones web recuerden información entre sesiones.
+
+
+En localStorage solo puede almacenar strings por lo cual para poder mandar un objeto,array,etc de JS al localStorage se utiliza los siguietes metodos de JSON: 
+
+JSON:
+    el obejo JSON en JavaScript  tiene dos métodos principales: JSON.stringify y JSON.parse. 
+
+    JSON.stringify();
+        este metodo convierte un valor de JS en una cadena JSON. Permite trasformar  objetos array, numeros, string, booleanos, y null en su representacion JSON
+
+        Sintaxis:
+
+            JSON.stringify(value, replacer, space);
+
+                value: El valor que se va a convertir en una cadena JSON.
+                replacer (opcional): Una función o un array que puede alterar el proceso de conversión.
+                space (opcional): Un número o cadena que se usa para agregar espacios en blanco y hacer que la salida sea más legible.
+
+        ejemplo:
+
+            const obj = { name: 'Alice', age: 25 };
+            const jsonString = JSON.stringify(obj);
+            console.log(jsonString); // {"name":"Alice","age":25}
+
+        JSON.stringify(parametro) => metodo utilizado para transformar un obejo de js a string para poder almacenarlo en el localStorage
+
+    
+    
+    JSON.parse
+        este metodo analiza una cadena JSON y la convierte en un objeto de JS. 
+
+        Sintaxis:
+
+            JSON.parse(text, reviver);
+
+                text: La cadena JSON que se va a analizar.
+                reviver (opcional): Una función que puede transformar los resultados antes de que se devuelvan.
+
+        Ejemplo básico:
+
+            const jsonString = '{"name":"Alice","age":25}';
+            const obj = JSON.parse(jsonString);
+            console.log(obj); // { name: 'Alice', age: 25 }
+
+        Ejemplo con reviver:
+
+            const jsonString = '{"name":"Alice","age":25}';
+            const obj = JSON.parse(jsonString, (key, value) => {
+                
+                if (key === 'age') {
+                    return value + 1; // Incrementa la edad en 1
+                }
+
+                return value;
+            });
+            
+            console.log(obj); // { name: 'Alice', age: 26 }
+
+        JSON.parse(parametro) => metodo para convertir un string del localStorage a objeto de js 
+
+
+
+
+
+ME

@@ -5,18 +5,37 @@ import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
 import React from 'react';
 
-const defaultTodos =[
-  { text: 'Cortar cebolla', completed: true},
-  { text: 'Tomar el curso de Intro a React.js', completed: false},
-  { text: 'Llorar con la llorana', completed: false},
-  { text: 'LALALALALALA', completed: false},
-  { text: 'Usar estados derivados', completed:true},
-];
+// const defaultTodos =[
+//   { text: 'Cortar cebolla', completed: true},
+//   { text: 'Tomar el curso de Intro a React.js', completed: false},
+//   { text: 'Llorar con la llorana', completed: false},
+//   { text: 'LALALALALALA', completed: false},
+//   { text: 'Usar estados derivados', completed:true},
+// ];
+
+// localStorage.setItem('TODOS_V1',JSON.stringify(defaultTodos))
+// localStorage.removeItem('TODOS_V1')
 
 function App() { //esto es jsx no html
 
+
+
+  // localStorage
+  const localStorageTodos = localStorage.getItem('TODOS_V1'); // string
+  
+
+  let parsedTodos;
+
+  if (!localStorageTodos) {
+    localStorage.setItem('TODOS_V1', JSON.stringify([]))
+    parsedTodos = [];
+  }else {
+    parsedTodos = JSON.parse(localStorageTodos)
+
+  }
+
   //Estado de App
-  const [todoItems, setTodoItems] = React.useState(defaultTodos);
+  const [todoItems, setTodoItems] = React.useState(parsedTodos);
 
   //Estado de TodoSearch
   const [searchValue,setSearchValue] = React.useState('');
@@ -37,6 +56,11 @@ function App() { //esto es jsx no html
   //console.log("soy todoItems:",searchTodoItems);
 
 
+  const saveTodos = (newTodos) => {
+    localStorage.setItem('TODOS_V1', JSON.stringify(newTodos))
+    setTodoItems(newTodos)
+  }
+
   const completeTodo = (text) => {
     const newTodos = [...todoItems];
     const todoIndex = newTodos.findIndex(
@@ -44,12 +68,12 @@ function App() { //esto es jsx no html
     ) 
     // Alternar el estado de completado 
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed;  
-    setTodoItems(newTodos)
+    saveTodos(newTodos)
   }
 
   const deleteTodos = (text) =>{
     const newTodos = [...todoItems].filter((todo) => todo.text !== text);
-    setTodoItems(newTodos);
+    saveTodos(newTodos);
   }
 
   const renderTodos = () => {
