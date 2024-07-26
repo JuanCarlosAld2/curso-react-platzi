@@ -12,12 +12,14 @@ function AppUI({
     searchTodoItems,
     completeTodo,
     deleteTodos,
-    todoItems
+    todoItems,
+    loading,
+    error
 }) {
     const renderTodos = () => {
-        if (todoItems.length === 0) {
+        if (!loading && todoItems.length === 0) {
           return <h2>Add a new task</h2>;
-        } else if (searchTodoItems.length === 0) {
+        } else if (!loading && searchTodoItems.length === 0) {
           return <h2>Task not found</h2>;
         } else {
           return searchTodoItems.map((todo) => (
@@ -45,6 +47,8 @@ function AppUI({
           />
     
           <TodoList >
+            {loading && <p>Estamos cargando</p>}
+            {error && <p>Desespérate, hubo un error!!</p>}
             {
              renderTodos()
             }

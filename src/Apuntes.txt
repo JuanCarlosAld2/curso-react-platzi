@@ -218,3 +218,8 @@ a la hora de realizar las importaciones la mejor practica es sin especificar
     
     Especificado 
         import { CreateTodoButton } from './CreateTodoButton/index.js';
+
+
+¿Que son los efectos?
+
+    

@@ -5,6 +5,8 @@ import React from 'react';
 
 // metodos para este ejercicio ejecutarlos en el navegador y de cirta manera reiniciar la aplicacion 
 
+// localStorage.removeItem('TODOS_V1')
+
 // const defaultTodos =[
 //   { text: 'Cortar cebolla', completed: true},
 //   { text: 'Tomar el curso de Intro a React.js', completed: false},
@@ -14,7 +16,7 @@ import React from 'react';
 // ];
 
 // localStorage.setItem('TODOS_V1',JSON.stringify(defaultTodos))
-// localStorage.removeItem('TODOS_V1')
+
 
 
 
@@ -24,7 +26,12 @@ function App() { //esto es jsx no html
 
 
   //Estado de App
-  const [todoItems, saveTodos] = useLocalStorage('TODOS_V1',[]); // al ser un array no importa el nombre a la hora de hacer destrucuracion 
+  const {
+    item: todoItems, 
+    saveItems: saveTodos,
+    loading,
+    error
+  } = useLocalStorage('TODOS_V1',[]); // al ser un array no importa el nombre a la hora de hacer destrucuracion 
 
   //Estado de TodoSearch
   const [searchValue,setSearchValue] = React.useState('');
@@ -35,6 +42,8 @@ function App() { //esto es jsx no html
   // const completedTodos = todoItems.filter((todo)=> todo.completed === true).length;
   const completedTodos = todoItems.filter((todo)=> !!todo.completed).length;
   const totalTodos = todoItems.length ;
+
+
 
   //Estado derivado: treas filtradas 
   const searchTodoItems = todoItems.filter((todo) => {
@@ -70,9 +79,8 @@ function App() { //esto es jsx no html
         completeTodo = {completeTodo}
         deleteTodos = {deleteTodos}
         todoItems = {todoItems}
-    
-    
-    
+        loading={loading}
+        error={error}
     />
   )
 
@@ -147,4 +155,12 @@ aunque la anidadion de operadores ternario esta bien estructurada, puede volvers
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+  console.log('log 1');
+  React.useEffect(()=>{
+    console.log('loooooooooog 2');
+  },[totalTodos])
+  console.log('log 3');
+
+    useEffect se ejecuta al final y solo se ejecuta una vez al menos que este de penditndo de algo como en este caso cuando la longitud de totalTodos  cambie useEffect se ejecuta 
 */
