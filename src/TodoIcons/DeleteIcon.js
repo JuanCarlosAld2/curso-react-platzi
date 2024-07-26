@@ -1,5 +1,5 @@
 import React from "react";
-import {TodoIcons} from './TodoIcons'
+import {TodoIcons} from './'
 
 function DeleteIcon({onDelete,text}) {
     return (

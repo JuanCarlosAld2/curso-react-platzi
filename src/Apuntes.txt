@@ -183,5 +183,38 @@ JSON:
 
 
 
+Custom Hooks
 
-ME
+    Son una forma de reutilizar la logica del estado entre componente. Son funciones de JS
+
+¿que es un Hook?
+    es una funcion especial que te permite engancharte a las caractericticas de React, como el estado y el ciclo de vida. Los dos Hooks mas comunes son: 
+
+        - useState : para manejar el estado en un componente funcional.
+        - useEffect: para realizar efectos secundarios, como llamadas a APIs o suscripciones.
+
+¿Que es un Custom Hook?
+
+    es simplemente una funcion de JavaScript cuyo nombre comienza con use y que puede llamar a otros Hooks. Te permite extraer lógica de componentes y reutilizarla.
+
+    siempre deben retornar objeto, array o la estructura con la que se desee trabajar
+
+
+
+Organizacion de archivos y carpetas
+
+Una carpeta por cada parte importante de nuestra aplicacion (componente ) 
+esta carpeta debe guardar todo lo relacionado con el componente:
+            - codigo React 
+            - codigo JS 
+            - CSS 
+            - imagenes
+            - svg, etc.
+
+a la hora de realizar las importaciones la mejor practica es sin especificar
+
+    Sin especificar     
+        import { CreateTodoButton } from './CreateTodoButton';
+    
+    Especificado 
+        import { CreateTodoButton } from './CreateTodoButton/index.js';

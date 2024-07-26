@@ -1,9 +1,9 @@
-import { TodoCounter } from './TodoCounter';
-import { TodoSearch } from './TodoSearch';
-import { TodoList } from './TodoList';
-import { TodoItem } from './TodoItem';
-import { CreateTodoButton } from './CreateTodoButton';
+
+import { useLocalStorage } from './useLocalStorage';
+import {AppUI} from './AppUI'
 import React from 'react';
+
+// metodos para este ejercicio ejecutarlos en el navegador y de cirta manera reiniciar la aplicacion 
 
 // const defaultTodos =[
 //   { text: 'Cortar cebolla', completed: true},
@@ -16,26 +16,15 @@ import React from 'react';
 // localStorage.setItem('TODOS_V1',JSON.stringify(defaultTodos))
 // localStorage.removeItem('TODOS_V1')
 
+
+
+
+
 function App() { //esto es jsx no html
 
 
-
-  // localStorage
-  const localStorageTodos = localStorage.getItem('TODOS_V1'); // string
-  
-
-  let parsedTodos;
-
-  if (!localStorageTodos) {
-    localStorage.setItem('TODOS_V1', JSON.stringify([]))
-    parsedTodos = [];
-  }else {
-    parsedTodos = JSON.parse(localStorageTodos)
-
-  }
-
   //Estado de App
-  const [todoItems, setTodoItems] = React.useState(parsedTodos);
+  const [todoItems, saveTodos] = useLocalStorage('TODOS_V1',[]); // al ser un array no importa el nombre a la hora de hacer destrucuracion 
 
   //Estado de TodoSearch
   const [searchValue,setSearchValue] = React.useState('');
@@ -53,13 +42,6 @@ function App() { //esto es jsx no html
     const searchText = searchValue.toLocaleLowerCase();
     return todoText.includes(searchText)
   });
-  //console.log("soy todoItems:",searchTodoItems);
-
-
-  const saveTodos = (newTodos) => {
-    localStorage.setItem('TODOS_V1', JSON.stringify(newTodos))
-    setTodoItems(newTodos)
-  }
 
   const completeTodo = (text) => {
     const newTodos = [...todoItems];
@@ -76,49 +58,24 @@ function App() { //esto es jsx no html
     saveTodos(newTodos);
   }
 
-  const renderTodos = () => {
-    if (todoItems.length === 0) {
-      return <h2>Add a new task</h2>;
-    } else if (searchTodoItems.length === 0) {
-      return <h2>Task not found</h2>;
-    } else {
-      return searchTodoItems.map((todo) => (
-        <TodoItem 
-          key={todo.text}
-          text={todo.text}
-          completed={todo.completed}
-          onComplete={completeTodo}
-          onDelete={deleteTodos}
-        />
-      ));
-    }
-  };
-
-    
+ 
 
   return (
-    <>
- 
-      <TodoCounter 
-        completed={completedTodos} 
-        total={totalTodos}
-      
-      />
-      <TodoSearch 
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-      />
+    <AppUI
+        completedTodos = {completedTodos}
+        totalTodos = {totalTodos}
+        searchValue = {searchValue}
+        setSearchValue = {setSearchValue}
+        searchTodoItems = {searchTodoItems}
+        completeTodo = {completeTodo}
+        deleteTodos = {deleteTodos}
+        todoItems = {todoItems}
+    
+    
+    
+    />
+  )
 
-      <TodoList >
-        {
-         renderTodos()
-        }
-      </TodoList>
-      
-       <CreateTodoButton /> 
-
-    </>
-  );
 };
 
 export default App;
