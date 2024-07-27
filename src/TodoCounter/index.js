@@ -1,21 +1,27 @@
 // COMPONENTE CON HOJA CSS 
-
+import { TodoContext } from '../TodoContext';
+import { TodoCounterLoading } from '../TodoCounterLoading';
 import './TodoCounter.css';
+import React from 'react';
 
-function TodoCounter ({ total, completed,loading,todoItems}) {
+function TodoCounter () {
 
-  // console.log(completed);
+  const { totalTodos, completedTodos,loading,todoItems} = React.useContext(TodoContext)
     return (
       <>
+        {/* {console.log('Buscando el length',todoItems)}  todas las variables correctas     */}
+        {loading && <TodoCounterLoading/>}
         {
+          
           todoItems.length > 0 &&
-          !loading && total === completed ? (
+          !loading && totalTodos === completedTodos ? (
+            
             <h1 className='TodoCounter'>You have completed all your tasks</h1>
           ) : (
               todoItems.length > 0 &&
                !loading &&
                 <h1 className='TodoCounter'>        
-                  Completed <span >{completed}</span> of <span>{total}</span> Todos
+                  Completed <span >{completedTodos}</span> of <span>{totalTodos}</span> Todos
                 </h1>
               ) 
         }

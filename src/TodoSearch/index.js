@@ -1,9 +1,10 @@
 import React from 'react';
 import './TodoSearch.css'
 import {InputLoading} from '../InputLoading'
+import { TodoContext } from '../TodoContext';
 
-function TodoSearch ({searchValue,setSearchValue,loading,todoItems}) {
-  
+function TodoSearch () {
+  const {searchValue,setSearchValue,loading,todoItems} = React.useContext(TodoContext)
     return (
       <>
         {

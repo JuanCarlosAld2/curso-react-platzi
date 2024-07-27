@@ -5,7 +5,7 @@ import React from "react"
 function EmptyTodos() {
     return(
         <div className='Container-CreateTodos'>
-             <div class="list">
+             <div className="list">
                 <span>C</span>
                 <span>r</span>
                 <span>e</span>

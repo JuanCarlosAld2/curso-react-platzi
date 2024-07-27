@@ -4,9 +4,9 @@ import {TodosError} from '../TodosError';
 import {EmptyTodos} from '../EmptyTodos' ;
 
 const renderTodos = (searchTodoItems,completeTodo,deleteTodos,todoItems,loading,error) => {
-    if(loading) return <TodosLoading/>
+  
+    if(loading) return <> <TodosLoading/><TodosLoading/><TodosLoading/> </>
     if(error) return <TodosError/>
-
     if (!loading && todoItems.length === 0) {
       return <EmptyTodos/>;
     } else if (!loading && searchTodoItems.length === 0) {

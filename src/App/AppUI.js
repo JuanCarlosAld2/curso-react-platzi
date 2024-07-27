@@ -3,46 +3,40 @@ import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
 import { CreateTodoButton } from '../CreateTodoButton';
 import {renderTodos} from './renderTodos'
+import { TodoContext } from '../TodoContext';
 
-function AppUI({
-    completedTodos,
-    totalTodos,
-    searchValue,
-    setSearchValue,
-    searchTodoItems,
-    completeTodo,
-    deleteTodos,
-    todoItems,
-    loading,
-    error
-}) {
+function AppUI() {
+
 
     return (
         <>
      
-          <TodoCounter 
-            todoItems={todoItems}
-            completed={completedTodos} 
-            total={totalTodos}
-            loading={loading}
-          
-          />
-          <TodoSearch 
-            todoItems={todoItems}
-            loading={loading}
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-          />
+          <TodoCounter/>
+          <TodoSearch />
+
+          <TodoContext.Consumer>
+            {({
+              searchTodoItems,completeTodo,deleteTodos,todoItems,loading,error
+            })=>(
+              <TodoList >
+                {
+                  renderTodos(searchTodoItems,completeTodo,deleteTodos,todoItems,loading,error)
+                }
+              </TodoList>
+            )}
+
+          </TodoContext.Consumer>
     
-          <TodoList >
-            {
-             renderTodos(searchTodoItems,completeTodo,deleteTodos,todoItems,loading,error)
-            }
-          </TodoList>
           
-          <CreateTodoButton 
-            loading={loading} 
-          /> 
+          <TodoContext.Consumer>
+            {({
+              loading
+            })=>(
+              <CreateTodoButton 
+              loading={loading} 
+            /> 
+            )}
+          </TodoContext.Consumer>
     
         </>
       );

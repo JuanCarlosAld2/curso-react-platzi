@@ -48,3 +48,19 @@ function useLocalStorage(itemName,initialValue) {
 }
 
 export {useLocalStorage}
+
+
+
+// metodos para este ejercicio ejecutarlos en el navegador y de cirta manera reiniciar la aplicacion 
+
+// localStorage.removeItem('TODOS_V1')
+
+// const defaultTodos =[
+//   { text: 'Cortar cebolla', completed: true},
+//   { text: 'Tomar el curso de Intro a React.js', completed: false},
+//   { text: 'Llorar con la llorana', completed: false},
+//   { text: 'LALALALALALA', completed: false},
+//   { text: 'Usar estados derivados', completed:true},
+// ];
+
+// localStorage.setItem('TODOS_V1',JSON.stringify(defaultTodos))

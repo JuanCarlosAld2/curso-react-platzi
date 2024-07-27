@@ -1,82 +1,12 @@
-
-import { useLocalStorage } from './useLocalStorage';
+import { TodoProvider } from '../TodoContext';
 import {AppUI} from './AppUI'
 import React from 'react';
 
-// metodos para este ejercicio ejecutarlos en el navegador y de cirta manera reiniciar la aplicacion 
-
-// localStorage.removeItem('TODOS_V1')
-
-// const defaultTodos =[
-//   { text: 'Cortar cebolla', completed: true},
-//   { text: 'Tomar el curso de Intro a React.js', completed: false},
-//   { text: 'Llorar con la llorana', completed: false},
-//   { text: 'LALALALALALA', completed: false},
-//   { text: 'Usar estados derivados', completed:true},
-// ];
-
-// localStorage.setItem('TODOS_V1',JSON.stringify(defaultTodos))
-
 function App() { //esto es jsx no html
-
-
-  //Estado de App
-  const {
-    item: todoItems, 
-    saveItems: saveTodos,
-    loading,
-    error
-  } = useLocalStorage('TODOS_V1',[]); // al ser un array no importa el nombre a la hora de hacer destrucuracion 
-
-  //Estado de TodoSearch
-  const [searchValue,setSearchValue] = React.useState('');
-
-
-  
-  //Estados derivados: 
-  // const completedTodos = todoItems.filter((todo)=> todo.completed === true).length;
-  const completedTodos = todoItems.filter((todo)=> !!todo.completed).length;
-  const totalTodos = todoItems.length ;
-
-
-
-  //Estado derivado: treas filtradas 
-  const searchTodoItems = [...todoItems].filter((todo) => {
-    const todoText = todo.text.toLocaleLowerCase();
-    const searchText = searchValue.toLocaleLowerCase();
-    return todoText.includes(searchText)
-  });
-
-  const completeTodo = (text) => {
-    const newTodos = [...todoItems];
-    const todoIndex = newTodos.findIndex(
-      (todo)=> todo.text === text
-    ) 
-    // Alternar el estado de completado 
-    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;  
-    saveTodos(newTodos)
-  }
-
-  const deleteTodos = (text) =>{
-    const newTodos = [...todoItems].filter((todo) => todo.text !== text);
-    saveTodos(newTodos);
-  }
-
- 
-
   return (
-    <AppUI
-        completedTodos = {completedTodos}
-        totalTodos = {totalTodos}
-        searchValue = {searchValue}
-        setSearchValue = {setSearchValue}
-        searchTodoItems = {searchTodoItems}
-        completeTodo = {completeTodo}
-        deleteTodos = {deleteTodos}
-        todoItems = {todoItems}
-        loading={loading}
-        error={error}
-    />
+    <TodoProvider>
+      <AppUI/>
+    </TodoProvider>
   )
 
 };
