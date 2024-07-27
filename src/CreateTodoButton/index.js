@@ -1,13 +1,22 @@
 import './CreateTodoButton.css'
-
-function CreateTodoButton () {
+import { CreateTodoButtonLoading } from '../CreateTodoButtonLoading'
+function CreateTodoButton ({loading}) {
     return (
-        <button className= 'CreateTodoButton' onClick={(event)=>{
-            console.log('me diste clik')
-            console.log(event)
-            console.log(event.target);
-            console.log(event.target.class);
-        }}>+</button>
+        <>
+            {
+                loading && <CreateTodoButtonLoading/>
+            }
+            {
+                !loading &&
+                <button className= 'CreateTodoButton' onClick={(event)=>{
+                    //console.log('me diste clik')
+                    //console.log(event)
+                    //console.log(event.target);
+                    //console.log(event.target.class);
+                }}>+</button>
+            }
+        </>
+        
     )
 }
 

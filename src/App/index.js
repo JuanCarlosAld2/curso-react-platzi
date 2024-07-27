@@ -17,11 +17,6 @@ import React from 'react';
 
 // localStorage.setItem('TODOS_V1',JSON.stringify(defaultTodos))
 
-
-
-
-
-
 function App() { //esto es jsx no html
 
 
@@ -46,7 +41,7 @@ function App() { //esto es jsx no html
 
 
   //Estado derivado: treas filtradas 
-  const searchTodoItems = todoItems.filter((todo) => {
+  const searchTodoItems = [...todoItems].filter((todo) => {
     const todoText = todo.text.toLocaleLowerCase();
     const searchText = searchValue.toLocaleLowerCase();
     return todoText.includes(searchText)

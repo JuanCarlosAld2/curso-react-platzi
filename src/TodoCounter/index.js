@@ -2,15 +2,18 @@
 
 import './TodoCounter.css';
 
-function TodoCounter ({ total, completed }) {
+function TodoCounter ({ total, completed,loading,todoItems}) {
 
   // console.log(completed);
     return (
       <>
         {
-          total === completed ? (
+          todoItems.length > 0 &&
+          !loading && total === completed ? (
             <h1 className='TodoCounter'>You have completed all your tasks</h1>
           ) : (
+              todoItems.length > 0 &&
+               !loading &&
                 <h1 className='TodoCounter'>        
                   Completed <span >{completed}</span> of <span>{total}</span> Todos
                 </h1>
