@@ -17,6 +17,7 @@
     width: 64px;
     transform: rotate(0);
     transition: .3s;
+    z-index: 1; /*se creo para que este por encima de Modal*/
 }
 
 .CreateTodoButton:hover {

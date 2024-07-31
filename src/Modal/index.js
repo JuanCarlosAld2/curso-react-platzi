@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom'
 function Modal({children}) {
 
     return ReactDOM.createPortal(
-        <div className="Modal">
+        <div className="ModalContainer">
               {/*elementps que se requiren teletrasportar */}
 
             {children}

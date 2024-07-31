@@ -10,17 +10,3 @@
     bottom: 630px;
 }
 
-.Container-Modal-form{
-    background-color: rgb(255, 255, 255);
-    height: 400px;
-    width: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute; /* Establece una posición para que z-index funcione */
-    z-index: 1; /* Asegura que esté por encima de .Container-Modal */
-    border-radius: 10px;
-    border: 2px solid rgba(0, 0, 0, 0.5); /* Borde blanco para contraste */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
-
-}

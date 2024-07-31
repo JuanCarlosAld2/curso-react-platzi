@@ -1,0 +1,78 @@
+.Container-Modal-form{
+    background-color: rgb(255, 255, 255); /* Fondo blanco para alto contraste */
+    height: 400px;
+    width: 300px;
+    display: flex;
+    flex-direction: column; /* Organiza el contenido en una columna */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    position: absolute; /* Establece una posición para que z-index funcione */
+    z-index: 1; /* Asegura que esté por encima de .Container-Modal */
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.5); /* Borde oscuro para contraste */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+}
+
+label {
+    text-align: center;
+    font-weight: bold;
+    color: #1E1E1F;
+    position: absolute;
+    top: 20px;
+}
+
+textarea {
+    position: relative;
+    bottom: 50px;
+    height: 120px;
+    width: (100% - 25);
+    background-color: #f9fbfc;
+    border: 2px solid #202329;
+    box-shadow: 0px 5px 50px rgba(32, 35, 41,0.25);
+    color: #1e1e1f;
+    font-size: 20px;
+    text-align: center;
+    padding: 12px;
+}
+textarea::placeholder {
+    color: #a5a5a5;
+    font-family: 'Montserrat';
+    font-weight: 400;
+}
+
+textarea:focus {
+    outline-color: #61DAFA;
+}
+
+.Container-buttons-form {
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    color: #202329;
+    font-weight: 400;
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+    height: 48px;
+    border-radius: 2px;
+    font-family: 'Montserrat', sans-serif;
+    justify-content: center; /* Centra los botones en el contenedor */
+    gap: 20px; /* Ajusta el espacio entre los botones */
+    padding: 0 20px;
+}
+
+.TodoForm-button--cancel, .TodoForm-button--add {
+    border: none; /* Elimina los bordes de ambos botones */
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.TodoForm-button--cancel {
+    background: transparent;
+}
+
+.TodoForm-button--add {
+    background: #61DAFA;
+    box-shadow: 0px 5px 25px rgba(97, 218, 250, 0.5); /* Corrige el error tipográfico "regba" a "rgba" */
+    color: #fff;
+}
