@@ -5,6 +5,9 @@ function useLocalStorage(itemName,initialValue) {
   const [item, setItem]=React.useState(initialValue); // para localStorage el estado debe llamarse items  
   const [loading, setLoading]=React.useState(true);
   const [error, setError]=React.useState(false);
+  //Estado de TodoSearch
+  const [searchValue,setSearchValue] = React.useState('');
+  const [openModal, setOpenModal] = React.useState(false)
     
 
   React.useEffect(()=>{
@@ -43,7 +46,12 @@ function useLocalStorage(itemName,initialValue) {
     item, 
     saveItems,
     loading,
-    error
+    error,
+    searchValue,
+    setSearchValue,
+    openModal, 
+    setOpenModal
+
   }
 }
 

@@ -11,12 +11,12 @@ function TodoProvider({children}) {
     item: todoItems, 
     saveItems: saveTodos,
     loading,
-    error
+    error,
+    searchValue,
+    setSearchValue,
+    openModal, 
+    setOpenModal
   } = useLocalStorage('TODOS_V1',[]); // al ser un array no importa el nombre a la hora de hacer destrucuracion 
-
-  //Estado de TodoSearch
-  const [searchValue,setSearchValue] = React.useState('');
-
 
   
   //Estados derivados: 
@@ -48,6 +48,10 @@ function TodoProvider({children}) {
     saveTodos(newTodos);
   }
 
+  const ActiveModalTodoCreator = () => {
+    const modalIsActive  = setOpenModal(!openModal)
+  }
+
 
     return (
         <TodoContext.Provider value = {{
@@ -60,7 +64,10 @@ function TodoProvider({children}) {
             deleteTodos,
             todoItems,
             loading,
-            error
+            error,
+            openModal, 
+            setOpenModal,
+            ActiveModalTodoCreator
         }}>
             {children}
         </TodoContext.Provider>

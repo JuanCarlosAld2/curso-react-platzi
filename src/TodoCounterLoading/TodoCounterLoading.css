@@ -1,3 +1,9 @@
+.Container{
+  display: flex;
+  justify-content: center;
+
+}
+
 .TodoCounterLoading {
     position: relative;   
     top: 25px;
@@ -5,7 +11,6 @@
     padding: 48px;
     width: 400px;
     border-radius: 10px;
-    left: 200px;
 }
 
 .TodoCounterLoading{

@@ -9,17 +9,16 @@ function TodoCounter () {
   const { totalTodos, completedTodos,loading,todoItems} = React.useContext(TodoContext)
     return (
       <>
-        {/* {console.log('Buscando el length',todoItems)}  todas las variables correctas     */}
         {loading && <TodoCounterLoading/>}
         {
           
           todoItems.length > 0 &&
-          !loading && totalTodos === completedTodos ? (
+          !loading && totalTodos === completedTodos ? ( //el uso de loadiding es cuestionable
             
             <h1 className='TodoCounter'>You have completed all your tasks</h1>
           ) : (
               todoItems.length > 0 &&
-               !loading &&
+               !loading &&   //el uso de loadiding es cuestionable
                 <h1 className='TodoCounter'>        
                   Completed <span >{completedTodos}</span> of <span>{totalTodos}</span> Todos
                 </h1>

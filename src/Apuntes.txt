@@ -222,4 +222,22 @@ a la hora de realizar las importaciones la mejor practica es sin especificar
 
 ¿Que son los efectos?
 
+
+
+React Portals
+
+    permiten renderizar un componente de React en un lugar diferente del DOM al de su componente padre. Esto es util cuando necesitas que un elemento aparezca en una posicion especifica en la pagina, como un modal(ventana emergente), pero el codigo que lo genera esta en otra parte de tu aplicacion.
+
+
+    Cuando usar React Portals
+
+        - Modales (ventanas emergentes): Para mostrar contenido superpuesto que necesita esta encima de otros elementos 
+
+        - Tooltips: Para mostrar pequeñas ventanas de informacion sobre otros elementos.
+
+        - Notificaciones: Para mostrar mensajes o alertas en un lugar especifico de la pantalla 
+
+
+    los portals son una herramienta poderosa en React que te permite controlar con precision donde se renderizan tus componentes en el DOM, mietras mantines una estructura logica clara en ru codigo de React.
+    
     
