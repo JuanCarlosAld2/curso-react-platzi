@@ -7,7 +7,9 @@ function useLocalStorage(itemName,initialValue) {
   const [error, setError]=React.useState(false);
   //Estado de TodoSearch
   const [searchValue,setSearchValue] = React.useState('');
-  const [openModal, setOpenModal] = React.useState(false)
+  const [openModal, setOpenModal] = React.useState(false);
+  const [openAlert, setOpenAlert] = React.useState(false);
+
     
 
   React.useEffect(()=>{
@@ -50,7 +52,9 @@ function useLocalStorage(itemName,initialValue) {
     searchValue,
     setSearchValue,
     openModal, 
-    setOpenModal
+    setOpenModal,
+    openAlert,
+    setOpenAlert,
 
   }
 }

@@ -15,7 +15,9 @@ function TodoProvider({children}) {
     searchValue,
     setSearchValue,
     openModal, 
-    setOpenModal
+    setOpenModal,
+    openAlert,
+    setOpenAlert,
   } = useLocalStorage('TODOS_V1',[]); // al ser un array no importa el nombre a la hora de hacer destrucuracion 
 
   
@@ -63,6 +65,11 @@ function TodoProvider({children}) {
 
   }
 
+  const showAlert = () => {
+    const change= !openAlert
+    setOpenAlert(change)
+  }
+
 
     return (
         <TodoContext.Provider value = {{
@@ -79,7 +86,10 @@ function TodoProvider({children}) {
             openModal, 
             setOpenModal,
             ActiveModalTodoCreator,
-            addTodo
+            addTodo,
+            openAlert,
+            setOpenAlert,
+            showAlert
         }}>
             {children}
         </TodoContext.Provider>

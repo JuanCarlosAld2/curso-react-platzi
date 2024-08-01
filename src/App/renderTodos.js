@@ -2,6 +2,7 @@ import { TodoItem } from '../TodoItem';
 import {TodosLoading} from '../TodosLoading';
 import {TodosError} from '../TodosError';
 import {EmptyTodos} from '../EmptyTodos' ;
+import { TaskNotFound } from '../TaskNotFound';
 
 const renderTodos = (searchTodoItems,completeTodo,deleteTodos,todoItems,loading,error) => {
   
@@ -10,7 +11,7 @@ const renderTodos = (searchTodoItems,completeTodo,deleteTodos,todoItems,loading,
     if (!loading && todoItems.length === 0) {
       return <EmptyTodos/>;
     } else if (!loading && searchTodoItems.length === 0) {
-      return <h2>Task not found 2</h2>;
+      return <TaskNotFound/>;
     } else {
       return searchTodoItems.map((todo) => (
         <TodoItem 

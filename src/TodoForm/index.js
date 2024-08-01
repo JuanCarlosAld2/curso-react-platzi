@@ -4,7 +4,7 @@ import React from "react";
 
 function TodoForm() {
 
-    const {ActiveModalTodoCreator,addTodo } = React.useContext(TodoContext);
+    const {ActiveModalTodoCreator,addTodo, showAlert,} = React.useContext(TodoContext);
 
     //Estado local 
     const [newTodoValue, setNewTodoValue] = React.useState('');
@@ -12,7 +12,7 @@ function TodoForm() {
 
     const onSubmit = (event) =>{
         event.preventDefault();
-        if(!newTodoValue) return alert('no existe tarea a guardar')
+        if(!newTodoValue) return showAlert()
         addTodo(newTodoValue)
         ActiveModalTodoCreator()
         
@@ -30,11 +30,12 @@ function TodoForm() {
 
     return(
         <form className='Container-Modal-form' onSubmit={onSubmit}>
-            <label>Escribe tu nuevo TODO</label>
+            <label>Write a new task TODO</label>
             <textarea placeholder='Cortar cebolla para el almuerzo' value={newTodoValue} onChange={onChange}/>
+
             <div className='Container-buttons-form'>
-                <button className='TodoForm-button TodoForm-button--cancel' type='button' onClick={onCancel}>cancelar</button> 
-                <button className='TodoForm-button TodoForm-button--add' type='submit'>agregar</button>    
+                <button className='TodoForm-button TodoForm-button--cancel' type='button' onClick={onCancel}>Cancel</button> 
+                <button className='TodoForm-button TodoForm-button--add' type='submit'>Add</button>    
             </div> 
 
         </form>

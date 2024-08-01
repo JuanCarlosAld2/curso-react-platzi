@@ -1,0 +1,31 @@
+.Conteiner-Alert {
+    position: relative; /*se mueve con la otra caja de atras*/
+    bottom: 1000px;
+    left: 580px;
+    border: 2px solid rgba(0, 0, 0, 0.5); /* Borde oscuro para contraste */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    z-index: 2;
+    height: 60px;
+    width: 365px;
+    display: flex; /* Usa flexbox */
+    align-items: flex-end; /* Alinea el contenido al final (parte inferior) */
+    padding-left: 10px; /* Opcional: Ajusta el espacio a la izquierda */
+    box-sizing: border-box; /* Asegura que el padding se incluya en el tamaño total del contenedor */
+}
+
+.Conteiner-Alert p {
+    margin: 0; /* Elimina el margen predeterminado del párrafo */
+    padding-bottom: 10px; /* Añade un pequeño padding inferior si es necesario */
+    font-family: 'Montserrat';
+    font-weight: bold;
+}
+
+.Conteiner-Alert button {
+    position: relative;
+    left: 10px;
+    bottom: 10px;
+    font-weight: bold;
+}
+

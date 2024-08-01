@@ -1,0 +1,29 @@
+.Container-Not-Found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.Container-Not-Found img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(180deg);
+    }
+}
+
+.Container-Not-Found p {
+    font-size: 40px;
+    font-family: 'Montserrat';
+    font-weight: bold;
+}

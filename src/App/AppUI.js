@@ -7,13 +7,16 @@ import { TodoContext } from '../TodoContext';
 import { Modal } from '../Modal';
 import React from 'react';
 import { ShowModalCreate } from '../ShowModalCreate';
+import { Alert } from '../Alert';
+import { ShowAlert } from '../ShowAlert';
+import './AppUI.css'
 
 function AppUI() {
 
-    const { openModal,loading} = React.useContext(TodoContext)
+    const { openModal , openAlert} = React.useContext(TodoContext)
 
     return (
-        <>
+        <div className={openAlert ? 'App no-interaction' : 'App'}>
      
           <TodoCounter/>
           <TodoSearch />
@@ -48,8 +51,16 @@ function AppUI() {
                 </Modal>
               )
             }
+
+            {
+              openAlert && (
+                <Alert>
+                  <ShowAlert/>
+                </Alert>
+              )
+            }
     
-        </>
+        </div>
       );
 }
 

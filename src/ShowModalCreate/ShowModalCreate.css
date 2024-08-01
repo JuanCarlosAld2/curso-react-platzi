@@ -10,3 +10,12 @@
     bottom: 630px;
 }
 
+.no-interaction {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  
+  .no-interaction * {
+    pointer-events: none;
+  }
+

@@ -1,5 +1,6 @@
 .Container-CreateTodos {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -8,8 +9,10 @@
 }
 
 .list {
+    position: relative;
     font-size: 2em;
-     display: flex;
+    display: flex;
+    right: 40px;
 }
 
 .list span {
@@ -36,10 +39,6 @@
 .list span:nth-child(15) { animation-delay: 1.4s; }
 .list span:nth-child(16) { animation-delay: 1.5s; }
 .list span:nth-child(17) { animation-delay: 1.6s; }
-.list span:nth-child(18) { animation-delay: 1.7s; }
-.list span:nth-child(19) { animation-delay: 1.8s; }
-.list span:nth-child(20) { animation-delay: 1.9s; }
-
 
 @keyframes list {
     0%, 100% {

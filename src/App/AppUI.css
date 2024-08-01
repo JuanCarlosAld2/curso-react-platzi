@@ -1,0 +1,11 @@
+/* styles.css */
+
+.no-interaction {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  
+  .no-interaction * {
+    pointer-events: none;
+  }
+  
